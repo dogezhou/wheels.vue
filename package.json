@@ -1,0 +1,26 @@
+{
+  "name": "wheels.vue",
+  "version": "0.0.1",
+  "description": "这是一个 vue 的组件库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dogezhou/wheels.vue.git"
+  },
+  "keywords": [
+    "vue",
+    "javascript"
+  ],
+  "author": "周伟",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dogezhou/wheels.vue/issues"
+  },
+  "homepage": "https://github.com/dogezhou/wheels.vue#readme",
+  "dependencies": {
+    "vue": "^2.6.2"
+  }
+}
