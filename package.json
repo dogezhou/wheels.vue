@@ -1,29 +1,37 @@
 {
-  "name": "wheels.vue",
-  "version": "0.0.1",
-  "description": "这是一个 vue 的组件库",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dogezhou/wheels.vue.git"
-  },
-  "keywords": [
-    "vue",
-    "javascript"
-  ],
-  "author": "周伟",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dogezhou/wheels.vue/issues"
-  },
-  "homepage": "https://github.com/dogezhou/wheels.vue#readme",
-  "dependencies": {
-    "vue": "^2.6.2"
-  },
-  "devDependencies": {
-    "parcel-bundler": "^1.11.0"
-  }
+    "name": "wheels.vue",
+    "version": "0.0.1",
+    "description": "这是一个 vue 的组件库",
+    "main": "index.js",
+    "scripts": {
+        "start": "npx parcel index.html --no-cache",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dogezhou/wheels.vue.git"
+    },
+    "keywords": [
+        "vue",
+        "javascript"
+    ],
+    "author": "周伟",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/dogezhou/wheels.vue/issues"
+    },
+    "homepage": "https://github.com/dogezhou/wheels.vue#readme",
+    "dependencies": {
+        "vue": "^2.6.3",
+        "vue-hot-reload-api": "^2.3.1"
+    },
+    "devDependencies": {
+        "@vue/component-compiler-utils": "^2.5.2",
+        "parcel-bundler": "^1.11.0",
+        "sass": "^1.17.0",
+        "vue-template-compiler": "^2.6.3"
+    },
+    "alias": {
+        "vue": "./node_modules/vue/dist/vue.common.js"
+    }
 }
