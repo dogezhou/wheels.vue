@@ -2,14 +2,15 @@
   <button
     class="z-button"
     :class="{[`icon-${iconPosition}`] : true}"
+    @click="$emit('click')"
   >
     <z-icon
-      v-if="icon"
+      v-if="loading"
       name="loading"
       class="icon loading"
     ></z-icon>
     <z-icon
-      v-if="icon"
+      v-if="icon && !loading"
       :name="icon"
       class="icon"
     ></z-icon>
@@ -24,6 +25,10 @@ export default {
   //   props: ['icon', 'iconPosition']
   props: {
     icon: {},
+    loading: {
+      type: Boolean,
+      default: false,
+    },
     iconPosition: {
       type: String,
       default: 'left',
@@ -31,7 +36,7 @@ export default {
         return ['left', 'right'].indexOf(value) > -1;
       }
     }
-  }
+  },
 }
 </script>
 

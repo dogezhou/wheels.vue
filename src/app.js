@@ -7,4 +7,7 @@ Vue.component('z-icon', Icon);
 
 new Vue({
     el: '#app',
+    data: {
+        loading1: true,
+    }
 })

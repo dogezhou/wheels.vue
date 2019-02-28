@@ -32,7 +32,7 @@
 
 <body>
     <div id="app">
-        <z-button>
+        <z-button :loading="loading1" @click="loading1 = !loading1">
             按钮
         </z-button>
         <z-button icon='settings'>
