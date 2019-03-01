@@ -16,7 +16,9 @@ new Vue({
 
 // 单元测试
 import chai from 'chai'
+import spies from 'chai-spies'
 
+chai.use(spies)
 const expect = chai.expect
 
 // 测试组件的几个参数
@@ -107,10 +109,10 @@ const expect = chai.expect
         }
     })
     vm.$mount()
-    vm.$on('click', function () {
-        console.log('点击事件函数执行')
-    })
+    let spy = chai.spy(() => { })
+    vm.$on('click', spy)
     let button = vm.$el
     button.click()
+    expect(spy).to.have.been.called();
     vm.$destroy()
 }
