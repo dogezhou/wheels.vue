@@ -71,9 +71,16 @@ export default {
   }
 
   .icon {
+    order: 1;
     margin-right: 0.1em;
   }
+  > .content {
+    order: 2;
+  }
   &.icon-right {
+    > .content {
+      order: 1;
+    }
     > .icon {
       order: 2;
       margin-left: 0.1em;
