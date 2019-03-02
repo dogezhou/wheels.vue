@@ -21,8 +21,13 @@
 </template>
 
 <script>
+import Icon from './icon'
+
 export default {
   //   props: ['icon', 'iconPosition']
+  components: {
+    'z-icon': Icon,
+  },
   props: {
     icon: {},
     loading: {
