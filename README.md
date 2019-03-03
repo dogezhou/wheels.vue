@@ -9,8 +9,9 @@
 1. 安装
 
 使用前，css 启用 border-box
+IE 8 及以上浏览器支持
 ```css
-* { box-sizing: border-box }
+*,*::before,*::after{ box-sizing: border-box }
 ```
 
 ## 文档
