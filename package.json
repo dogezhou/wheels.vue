@@ -2,7 +2,7 @@
     "name": "wheels-vue-1",
     "version": "0.0.1",
     "description": "这是一个 vue 的组件库",
-    "main": "index.js",
+    "main": "dist/index.js",
     "scripts": {
         "start": "parcel index.html --no-cache",
         "dev-test": "concurrently \"parcel watch test/* --no-cache\" \"karma start\" \"echo 热更新测试!\"",
