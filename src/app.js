@@ -11,6 +11,7 @@ Vue.component('z-input', Input)
 new Vue({
     el: '#app',
     data: {
+        message: 'input 值',
         loading1: true,
     }
 })
