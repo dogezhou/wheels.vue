@@ -28,10 +28,21 @@
             padding: 30px;
         }
     </style>
+    <style>
+        .box {
+            margin: 20px 0;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
+        <z-input value="甲"></z-input>
+        <z-input value="甲" disabled></z-input>
+        <z-input value="乙" readonly></z-input>
+        <div class="box">
+            <z-input value="乙" error="姓名不能小于两个字符"></z-input>
+        </div>
         <z-button :loading="loading1" @click="loading1 = !loading1">
             按钮
         </z-button>
