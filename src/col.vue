@@ -2,8 +2,11 @@
   <div
     class="col"
     :class="[span && `col-${span}`, offset && `offset-${offset}`]"
+    :style="{paddingLeft: gutter/2 + 'px', paddingRight: gutter/2 + 'px'}"
   >
-    <slot></slot>
+    <div style="border: 1px solid #aaa; height: 100px">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -16,6 +19,11 @@ export default {
     },
     offset: {
       type: [Number, String],
+    },
+  },
+  data() {
+    return {
+      gutter: 0
     }
   }
 }
@@ -23,10 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 .col {
-  height: 100px;
-  background: grey;
   width: 50%;
-  border: 1px solid black;
 }
 
 $class: col-;
