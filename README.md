@@ -29,4 +29,6 @@ IE 8 及以上浏览器支持
 ## 组件介绍
 
 ### 1. 栅格系统
-参考 ant design 的 API 设计一列 24 等分，设计两个组件 z-row, z-col，span 属性指定该列所占栅格。
+参考 ant design 的 API 设计一列 24 等分，设计两个组件 z-row, z-col。  
+z-col: span 属性指定该列所占栅格; offset 属性指定该列偏移的栅格数量
+
