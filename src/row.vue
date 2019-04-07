@@ -1,7 +1,7 @@
 <template>
   <div
     class="row"
-    :style="{marginLeft: -gutter/2 + 'px', marginRight: -gutter/2 + 'px'}"
+    :style="rowStyle"
   >
     <slot></slot>
   </div>
@@ -14,6 +14,12 @@ export default {
     gutter: {
       type: [Number, String],
     },
+  },
+  computed: {
+    rowStyle() {
+      const { gutter } = this
+      return { marginLeft: -gutter / 2 + 'px', marginRight: -gutter / 2 + 'px' }
+    }
   },
   created() {
     // console 打印数组为空，点开有元素，说明在 created 中是没有子元素的
