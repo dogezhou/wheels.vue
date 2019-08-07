@@ -14,11 +14,21 @@ export default {
     gutter: {
       type: [Number, String],
     },
+    align: {
+      type: String,
+      validator (value) {
+        return ['left', 'right', 'center'].includes(value)
+      }
+    }
   },
   computed: {
     rowStyle() {
       const { gutter } = this
       return { marginLeft: -gutter / 2 + 'px', marginRight: -gutter / 2 + 'px' }
+    },
+    rowClass() {
+      const { align } = this
+      return [align && `align-${align}`]
     }
   },
   created() {
@@ -35,7 +45,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.row {
-  display: flex;
-}
+  .row{
+    display: flex;
+    &.align-left{
+      justify-content: flex-start;
+    }
+    &.align-center{
+      justify-content: center;
+    }
+    &.align-right{
+      justify-content: flex-end;
+    }
+  }
 </style>
