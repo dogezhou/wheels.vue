@@ -45,8 +45,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .row{
+  .row {
     display: flex;
+    flex-wrap: wrap;
     &.align-left{
       justify-content: flex-start;
     }
