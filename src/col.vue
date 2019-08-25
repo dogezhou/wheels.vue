@@ -85,6 +85,11 @@
     }
     // 对应 ant design 的 xs sm md lg xl xxl
     // https://ant.design/components/grid-cn/#Col
+    /**
+    * 设置 min-width 使得网格响应式往下找最近的，
+    * span ipad narrowPc 如果没有写 ipad 属性（也许前端工程师没有 ipad 的设计稿）那在 ipad 上使用 span 也就是
+    * 手机的布局。也就是说此组件是 Mobile First (移动端优先的）
+     */
     @media (min-width: 577px) {
       $class-prefix: col-ipad-;
       @for $n from 1 through 24 {
