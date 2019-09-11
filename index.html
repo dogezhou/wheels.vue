@@ -30,21 +30,32 @@
         }
     </style>
     <style>
-      .demo {
-        border: 1px solid grey;
-        min-height: 100px;
+      .sider {
+        background: #222;
+        width: 160px;
+      }
+      .sider.slide-enter, .sider.slide-leave-to {
+        margin-left: -160px !important;
+      }
+      .header {
+        background: #999;
+        height: 100px;
+      }
+      .footer {
+        background: #ccc;
+        height: 50px;
       }
     </style>
 </head>
 
 <body>
     <div id="app">
-        <z-layout>
-          <z-sider class="demo">sider</z-sider>
+        <z-layout style="height: 100vh">
+          <z-sider>sider</z-sider>
           <z-layout>
-            <z-header class="demo">header</z-header>
-            <z-content class="demo">content</z-content>
-            <z-footer class="demo">footer</z-footer>
+            <z-header>header</z-header>
+            <z-content>content</z-content>
+            <z-footer>footer</z-footer>
           </z-layout>
         </z-layout>
 <!--        <z-row>-->
