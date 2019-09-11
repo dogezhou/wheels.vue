@@ -33,3 +33,5 @@ IE 8 及以上浏览器支持
 z-col: span 属性指定该列所占栅格; offset 属性指定该列偏移的栅格数量
 z-row: gutter 属性指定 col 之间间隙
 
+### 2. 布局组件
+参考 ant design 五个布局组件
