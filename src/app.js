@@ -41,7 +41,9 @@ new Vue({
             console.log('toast 关闭回调')
           }
         },
-        enableHtml: false
+        autoClose: false,
+        enableHtml: false,
+        position: 'middle'
       })
     }
   }
