@@ -35,7 +35,14 @@ new Vue({
   },
   methods: {
     showToast() {
-      this.$toast('全局提示信息内容')
+      this.$toast('我<a href="qq.com">要</a>', {
+        closeButton: {
+          text: '关闭', callback () {
+            console.log('toast 关闭回调')
+          }
+        },
+        enableHtml: false
+      })
     }
   }
 })
