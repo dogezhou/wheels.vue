@@ -35,7 +35,7 @@ new Vue({
   },
   methods: {
     showToast() {
-      this.$toast('我<a href="qq.com">要</a>', {
+      this.$toast('我要', {
         closeButton: {
           text: '关闭', callback () {
             console.log('toast 关闭回调')
