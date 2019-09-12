@@ -29,35 +29,36 @@
             margin: 20px 0;
         }
     </style>
-    <style>
-      .sider {
-        background: #222;
-        width: 160px;
-      }
-      .sider.slide-enter, .sider.slide-leave-to {
-        margin-left: -160px !important;
-      }
-      .header {
-        background: #999;
-        height: 100px;
-      }
-      .footer {
-        background: #ccc;
-        height: 50px;
-      }
-    </style>
+<!--    <style>-->
+<!--      .sider {-->
+<!--        background: #222;-->
+<!--        width: 160px;-->
+<!--      }-->
+<!--      .sider.slide-enter, .sider.slide-leave-to {-->
+<!--        margin-left: -160px !important;-->
+<!--      }-->
+<!--      .header {-->
+<!--        background: #999;-->
+<!--        height: 100px;-->
+<!--      }-->
+<!--      .footer {-->
+<!--        background: #ccc;-->
+<!--        height: 50px;-->
+<!--      }-->
+<!--    </style>-->
 </head>
 
 <body>
     <div id="app">
-        <z-layout style="height: 100vh">
-          <z-sider>sider</z-sider>
-          <z-layout>
-            <z-header>header</z-header>
-            <z-content>content</z-content>
-            <z-footer>footer</z-footer>
-          </z-layout>
-        </z-layout>
+      <button @click="showToast">按钮</button>
+<!--        <z-layout style="height: 100vh">-->
+<!--          <z-sider>sider</z-sider>-->
+<!--          <z-layout>-->
+<!--            <z-header>header</z-header>-->
+<!--            <z-content>content</z-content>-->
+<!--            <z-footer>footer</z-footer>-->
+<!--          </z-layout>-->
+<!--        </z-layout>-->
 <!--        <z-row>-->
 <!--            <z-col>1</z-col>-->
 <!--            <z-col>2</z-col>-->

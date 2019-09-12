@@ -10,6 +10,8 @@ import Header from './header'
 import Sider from './sider'
 import Content from './content'
 import Footer from './footer'
+import Toast from './toast'
+import plugin from './plugin'
 
 Vue.component('z-button-group', ButtonGroup)
 Vue.component('z-button', Button)
@@ -22,13 +24,20 @@ Vue.component('z-header', Header)
 Vue.component('z-content', Content)
 Vue.component('z-footer', Footer)
 Vue.component('z-sider', Sider)
+Vue.component('z-toast', Toast)
+Vue.use(plugin)
 
 new Vue({
-    el: '#app',
-    data: {
-        message: 'input 值',
-        loading1: true,
+  el: '#app',
+  data: {
+    message: 'input 值',
+    loading1: true,
+  },
+  methods: {
+    showToast() {
+      this.$toast('全局提示信息内容')
     }
+  }
 })
 
 // // 单元测试
