@@ -60,7 +60,7 @@
         if (this.autoClose) {
           setTimeout(() => {
             this.close()
-          }, this.autoClose * 1000)
+          }, this.autoCloseDelay * 1000)
         }
       },
       updateStyles () {
