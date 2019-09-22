@@ -52,3 +52,5 @@ z-row: gutter 属性指定 col 之间间隙
 toast 是动态创建的，可以使用原生 dom api, 但是没有使用到 vue 的功能，所以使用 Vue 的动态创建组件功能，
 可以参考 Vue.extend https://cn.vuejs.org/v2/api/#Vue-extend，更完整的 Vue 动态创建组件方式请看这篇文章
 https://css-tricks.com/creating-vue-js-component-instances-programmatically/
+
+### 4. tabs 组件

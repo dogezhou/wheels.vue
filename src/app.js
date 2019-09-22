@@ -12,6 +12,11 @@ import Content from './content'
 import Footer from './footer'
 import Toast from './toast'
 import plugin from './plugin'
+import Tabs from './tabs'
+import TabsHead from './tabs-head'
+import TabsBody from './tabs-body'
+import TabsItem from './tabs-item'
+import TabsPane from './tabs'
 
 Vue.component('z-button-group', ButtonGroup)
 Vue.component('z-button', Button)
@@ -26,12 +31,17 @@ Vue.component('z-footer', Footer)
 Vue.component('z-sider', Sider)
 Vue.component('z-toast', Toast)
 Vue.use(plugin)
-
+Vue.component('z-tabs', Tabs)
+Vue.component('z-tabs-head', TabsHead)
+Vue.component('z-tabs-item', TabsItem)
+Vue.component('z-tabs-body', TabsBody)
+Vue.component('z-tabs-pane', TabsPane)
 new Vue({
   el: '#app',
   data: {
     message: 'input 值',
     loading1: true,
+    selectedTab: 'tab1'
   },
   methods: {
     showToast() {

@@ -50,7 +50,35 @@
 
 <body>
     <div id="app">
-      <button @click="showToast">按钮</button>
+      <z-tabs :selected.sync="selectedTab">
+<!--      <z-tabs :selected="selectedTab" @update:selected="selectedTab = $event">-->
+        <z-tabs-head>
+          <template slot="actions">
+            <button>更多</button>
+          </template>
+          <z-tabs-item name="tab1">
+            <z-icon name="settings"></z-icon>tab1
+          </z-tabs-item>
+          <z-tabs-item name="tab2" disabled>
+            tab2
+          </z-tabs-item>
+          <z-tabs-item name="tab3">
+            tab3
+          </z-tabs-item>
+        </z-tabs-head>
+        <z-tabs-body>
+          <z-tabs-pane name="tab1">
+            tab1 content
+          </z-tabs-pane>
+          <z-tabs-pane name="tab2">
+            tab2 content
+          </z-tabs-pane>
+          <z-tabs-pane name="tab3">
+            tab3 content
+          </z-tabs-pane>
+        </z-tabs-body>
+      </z-tabs>
+<!--      <button @click="showToast">按钮</button>-->
 <!--        <z-layout style="height: 100vh">-->
 <!--          <z-sider>sider</z-sider>-->
 <!--          <z-layout>-->
