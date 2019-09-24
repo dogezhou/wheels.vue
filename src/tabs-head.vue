@@ -11,9 +11,11 @@
   export default {
     name: 'ZTabsHead',
     inject: ['eventBus'],
-    created () {
+    mounted () {
       this.eventBus.$on('update:selected', (item, vm) => {
-        console.log('选中的元素', vm.$el)
+        const { width, height, top, left } = vm.$el.getBoundingClientRect()
+        this.$refs.line.style.width = `${width}px`
+        this.$refs.line.style.left = `${left}px`
       })
     }
   }
@@ -30,7 +32,7 @@
       position: absolute;
       bottom: 0;
       border-bottom: 1px solid $blue;
-      width: 100px;
+      transition: all 300ms;
     }
     > .actions-wrapper {
       margin-left: auto;
