@@ -54,3 +54,5 @@ toast 是动态创建的，可以使用原生 dom api, 但是没有使用到 vue
 https://css-tricks.com/creating-vue-js-component-instances-programmatically/
 
 ### 4. tabs 组件
+tabs 组件切换的时候有很多组件通信的内容，可以通过父子组件的通信来完成，但是过于复杂，可以通过一个第三方的事件中心
+管理，vue 文档有写, 通过一个新的 vue 实例作为 EventBus

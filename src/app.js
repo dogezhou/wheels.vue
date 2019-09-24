@@ -16,7 +16,7 @@ import Tabs from './tabs'
 import TabsHead from './tabs-head'
 import TabsBody from './tabs-body'
 import TabsItem from './tabs-item'
-import TabsPane from './tabs'
+import TabsPane from './tabs-pane'
 
 Vue.component('z-button-group', ButtonGroup)
 Vue.component('z-button', Button)
