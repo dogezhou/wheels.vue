@@ -31,6 +31,9 @@
       }
     },
     mounted () {
+      if (this.$children.length === 0) {
+        console && console.warn && console.warn('tabs 的子组件应该是 tabs-head 和 tabs-body')
+      }
       this.$children.forEach((vm) => {
         if (vm.$options.name === 'ZTabsHead') {
           vm.$children.forEach((childVm) => {
