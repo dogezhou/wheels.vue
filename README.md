@@ -64,3 +64,5 @@ body tag 中。
 2. 移到 body 中之后需要设置弹出内容的 position, getBoundingClientRect 获取的是元素在可视范围上的 top, left,
 但是 position absolute 是相对于 body 元素的，需要把 window.scrollY （文档 body 顶部到可视范围顶部的距离）
  和 window.scrollX 加上
+ 3. 处理弹出框的点击事件时不要使用 click.stop 阻止冒泡，避免使用者无法监听点击事件，使用 this.$ref.<name>.contains
+ (event.target) 来判断点击元素来处理
