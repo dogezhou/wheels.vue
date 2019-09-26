@@ -58,4 +58,9 @@ tabs 组件切换的时候有很多组件通信的内容，可以通过父子组
 管理，vue 文档有写, 通过一个新的 vue 实例作为 EventBus
 
 ### 5. popover 弹出框组件
-popover 的难点不在于控制弹出框的显示和消失，而在于CSS, 使他出现在按钮正上方。
+popover 的难点不在于控制弹出框的显示和消失，而在于CSS, 使他出现在按钮正上方。  
+1. 首先弹出框组件如果被包裹在 over-flow: hidden 的 tag 中，弹出内容显示出问题，所以 ant-design 把弹出内容放到了
+body tag 中。  
+2. 移到 body 中之后需要设置弹出内容的 position, getBoundingClientRect 获取的是元素在可视范围上的 top, left,
+但是 position absolute 是相对于 body 元素的，需要把 window.scrollY （文档 body 顶部到可视范围顶部的距离）
+ 和 window.scrollX 加上
