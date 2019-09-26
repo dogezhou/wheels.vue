@@ -1,6 +1,6 @@
 <template>
-  <div class="popover" @click="switchPopover">
-    <div class="content-wrapper" v-if="visible">
+  <div class="popover" @click.stop="switchPopover">
+    <div class="content-wrapper" v-if="visible" @click.stop>
       <slot name="content"></slot>
     </div>
     <slot></slot>
@@ -18,6 +18,13 @@
     methods: {
       switchPopover () {
         this.visible = !this.visible
+        if (this.visible === true) {
+          const eventHandler = () => {
+            this.visible = false
+            document.removeEventListener('click', eventHandler)
+          }
+          document.addEventListener('click', eventHandler)
+        }
       }
     }
   }
