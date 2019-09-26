@@ -56,3 +56,6 @@ https://css-tricks.com/creating-vue-js-component-instances-programmatically/
 ### 4. tabs 组件
 tabs 组件切换的时候有很多组件通信的内容，可以通过父子组件的通信来完成，但是过于复杂，可以通过一个第三方的事件中心
 管理，vue 文档有写, 通过一个新的 vue 实例作为 EventBus
+
+### 5. popover 弹出框组件
+popover 的难点不在于控制弹出框的显示和消失，而在于CSS, 使他出现在按钮正上方。
