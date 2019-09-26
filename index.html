@@ -51,6 +51,15 @@
 <body>
     <div id="app">
       <div class="popover-test" style="padding-top: 100px; padding-left: 50px;">
+        <z-popover trigger="hover">
+          <template slot="content">
+            <div>弹出框 content</div>
+          </template>
+          <z-button>按钮 hover</z-button>
+        </z-popover>
+      </div>
+
+      <div class="popover-test" style="padding-top: 100px; padding-left: 50px;">
         <z-popover>
           <template slot="content">
             <div>弹出框 content</div>
