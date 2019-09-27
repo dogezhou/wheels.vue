@@ -2,7 +2,7 @@
   <div class="popover" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible"
       :class="{[`position-${position}`]: true}">
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
     <span ref="triggerWrapper" style="display: inline-block;">
       <slot></slot>
@@ -13,6 +13,22 @@
 <script>
   export default {
     name: "ZPopover",
+    props: {
+      position: {
+        type: String,
+        default: 'top',
+        validator (value) {
+          return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0
+        }
+      },
+      trigger: {
+        type: String,
+        default: 'click',
+        validator (value) {
+          return ['click', 'hover'].indexOf(value) >= 0
+        }
+      },
+    },
     data () {
       return {
         visible: false,
@@ -32,22 +48,6 @@
       } else {
         this.$refs.popover.removeEventListener('mouseenter', this.open)
         this.$refs.popover.removeEventListener('mouseleave', this.close)
-      }
-    },
-    props: {
-      position: {
-        type: String,
-        default: 'top',
-        validator (value) {
-          return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0
-        }
-      },
-      trigger: {
-        type: String,
-        default: 'click',
-        validator (value) {
-          return ['click', 'hover'].indexOf(value) >= 0
-        }
       }
     },
     methods: {

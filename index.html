@@ -79,8 +79,11 @@
 
       <div class="popover-test" style="padding-top: 100px; padding-left: 50px;">
         <z-popover>
-          <template slot="content">
-            <div>弹出框 content</div>
+          <template slot="content" slot-scope="{ close }">
+            <div>
+              弹出框 content
+              <z-button @click="close">关闭</z-button>
+            </div>
           </template>
           <z-button>按钮</z-button>
         </z-popover>
