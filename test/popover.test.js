@@ -29,4 +29,21 @@ describe('popover 组件', () => {
       done()
     })
   })
+
+  // TODO: 测试不同 trigger
+  it.skip('设置 trigger', (done) => {
+    Vue.component('z-popover', Popover)
+    const div = document.createElement('div')
+    document.body.appendChild(div)
+    div.innerHTML = `
+      <z-popover trigger="hover" ref="popover">
+        <template slot="content">弹出能容</template>
+        <button>按钮</button>
+      </z-popover>
+    `
+    const vm = new Vue({
+      el: div
+    })
+    done()
+  })
 })
