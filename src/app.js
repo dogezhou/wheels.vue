@@ -47,7 +47,7 @@ new Vue({
     message: 'input 值',
     loading1: true,
     selectedTab: 'tab1',
-    selectedItem: '2',
+    selectedItem: ['2', '1'],
   },
   methods: {
     showToast() {
