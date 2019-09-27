@@ -46,7 +46,8 @@ new Vue({
   data: {
     message: 'input 值',
     loading1: true,
-    selectedTab: 'tab1'
+    selectedTab: 'tab1',
+    selectedItem: '2',
   },
   methods: {
     showToast() {
@@ -58,7 +59,7 @@ new Vue({
         },
         autoClose: false,
         enableHtml: false,
-        position: 'middle'
+        position: 'middle',
       })
     }
   }
