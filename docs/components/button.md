@@ -6,7 +6,9 @@ siderbarDepth: 2
 
 ## 使用方法
 :sunglasses:
+<ClientOnly>
 <button-demos />
+</ClientOnly>
 
 ``` html
     <z-button>按钮</z-button>

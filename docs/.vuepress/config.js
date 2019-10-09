@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/wheels.vue/',
     title: '整挺好',
     description: '一个整挺好的 UI 框架',
     themeConfig: {
