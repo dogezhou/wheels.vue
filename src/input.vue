@@ -49,12 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$font-size: 14px;
-$height: 32px;
-$border-color: #999;
-$border-color-hover: #666;
-$border-radius: 4px;
-$red: #f1453d;
+@import "var";
 .wrapper {
   font-size: $font-size;
   display: inline-flex;
