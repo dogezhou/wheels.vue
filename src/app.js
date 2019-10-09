@@ -20,27 +20,30 @@ import TabsPane from './tabs-pane'
 import Popover from './popover'
 import Collapse from './collapse'
 import CollapseItem from './collapse-item'
+import Cascader from './cascader'
 
 Vue.component('z-button-group', ButtonGroup)
 Vue.component('z-button', Button)
-Vue.component('z-icon', Icon)
-Vue.component('z-input', Input)
-Vue.component('z-row', Row)
+Vue.component('z-cascader', Cascader)
 Vue.component('z-col', Col)
-Vue.component('z-layout', Layout)
-Vue.component('z-header', Header)
+Vue.component('z-collapse-item', CollapseItem)
+Vue.component('z-collapse', Collapse)
 Vue.component('z-content', Content)
 Vue.component('z-footer', Footer)
+Vue.component('z-header', Header)
+Vue.component('z-icon', Icon)
+Vue.component('z-input', Input)
+Vue.component('z-layout', Layout)
+Vue.component('z-popover', Popover)
+Vue.component('z-row', Row)
 Vue.component('z-sider', Sider)
-Vue.component('z-toast', Toast)
-Vue.use(plugin)
-Vue.component('z-tabs', Tabs)
+Vue.component('z-tabs-body', TabsBody)
 Vue.component('z-tabs-head', TabsHead)
 Vue.component('z-tabs-item', TabsItem)
-Vue.component('z-tabs-body', TabsBody)
-Vue.component('z-popover', Popover)
-Vue.component('z-collapse', Collapse)
-Vue.component('z-collapse-item', CollapseItem)
+Vue.component('z-tabs', Tabs)
+Vue.component('z-toast', Toast)
+Vue.use(plugin)
+
 new Vue({
   el: '#app',
   data: {
@@ -48,6 +51,34 @@ new Vue({
     loading1: true,
     selectedTab: 'tab1',
     selectedItem: ['2', '1'],
+    source: [
+      {
+        name: '浙江',
+        children: [
+          {
+            name: '杭州',
+            children: [
+              {
+                name: '西湖'
+              }
+            ]
+          },
+        ],
+      },
+      {
+        name: '江苏',
+        children: [
+          {
+            name: '南京',
+            children: [
+              {
+                name: '江宁区'
+              }
+            ]
+          },
+        ],
+      },
+    ]
   },
   methods: {
     showToast() {
