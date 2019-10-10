@@ -1,13 +1,17 @@
 <template>
   <div class="cascader-item" :style="{height: height}">
+    <div>
+      selected: {{selected[level] && selected[level].name}}
+      level: {{level}}
+    </div>
     <div class="left">
-      <div class="label" v-for="(item, index) in items" :key="index" @click="leftSelected=item">
+      <div class="label" v-for="(item, index) in items" :key="index" @click="onClickLabel(item)">
         {{item.name}}
         <icon class="icon" v-if="item.children" name="right"></icon>
       </div>
     </div>
     <div class="right" v-if="rightItems">
-      <cascader-item :items="rightItems" :height="height"></cascader-item>
+      <cascader-item :items="rightItems" :height="height" :level="level+1" :selected="selected" @update:selected="onChangeSelected"></cascader-item>
     </div>
   </div>
 </template>
@@ -23,20 +27,36 @@ export default {
     },
     height: {
       type: String
-    }
-  },
-  data () {
-    return {
-      leftSelected: null
+    },
+    selected: {
+      type: Array,
+      default: () => []
+    },
+    level: {
+      type: Number,
+      default: 0,
     }
   },
   computed: {
     rightItems () {
-      if (this.leftSelected && this.leftSelected.children) {
-        return this.leftSelected.children
+      const currentSelected = this.selected[this.level]
+      if (currentSelected && currentSelected.children) {
+        return currentSelected.children
       } else {
         return null
       }
+    }
+  },
+  methods: {
+    onClickLabel (item) {
+      this.$set(this.selected, this.level, item)
+      const copy = JSON.parse(JSON.stringify(this.selected))
+      copy[this.level] = item
+      copy.splice(this.level + 1)
+      this.$emit('update:selected', copy)
+    },
+    onChangeSelected (selected) {
+      this.$emit('update:selected', selected)
     }
   }
 }
