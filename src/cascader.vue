@@ -1,12 +1,10 @@
 <template>
   <div class="cascader">
-    <div class="trigger">
+    <div class="trigger" @click="popoverVisible=!popoverVisible">
       <slot></slot>
     </div>
-    <div class="popover">
-      <div v-for="(item, index) in source" :key="index">
-        <cascader-item :sourceItem="item"></cascader-item>
-      </div>
+    <div class="popover" v-if="popoverVisible">
+      <cascader-item :items="source"></cascader-item>
     </div>
   </div>
 </template>
@@ -20,6 +18,11 @@ export default {
     source: {
       type: Array
     }
+  },
+  data () {
+    return {
+      popoverVisible: false,
+    }
   }
 }
 </script>
@@ -27,6 +30,15 @@ export default {
 <style lang="scss" scoped>
   @import "var";
   .cascader {
-
+    .trigger {
+      border: 1px solid pink;
+      height: 32px;
+      width: 100px;
+    }
+    .popover {
+      border: 1px solid pink;
+      height: 200px;
+      display: flex;
+    }
   }
 </style>
