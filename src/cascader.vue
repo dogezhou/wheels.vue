@@ -5,7 +5,7 @@
       {{result || '&nbsp;'}}
     </div>
     <div class="popover-wrapper" v-if="popoverVisible">
-      <cascader-item :items="source" :height="popoverHeight" :selected="selected" @update:selected="onChangeSelected"></cascader-item>
+      <cascader-item :load-data="loadData" :items="source" :height="popoverHeight" :selected="selected" @update:selected="onChangeSelected"></cascader-item>
     </div>
   </div>
 </template>
@@ -25,6 +25,9 @@ export default {
     selected: {
       type: Array,
       default: () => []
+    },
+    loadData: {
+      type: Function
     }
   },
   data () {
@@ -40,6 +43,34 @@ export default {
   methods: {
     onChangeSelected (selected) {
       this.$emit('update:selected', selected)
+      const lastSelectedItem = selected[selected.length - 1]
+      // 通过上一个选中的内容的 id 在 source 中找到需要插入 children 的节点
+      const getNodeById = (children, id) => {
+        let node = undefined
+        children.forEach(item => {
+          if (item.children) {
+            node = getNodeById(item.children, id)
+          } else {
+            if (item.id === id) {
+              node = item
+            }
+          }
+        })
+        return node
+      }
+      const updateSource = (result) => {
+        // 遵循单向数据流原则，子组件不要修改 props
+        // this.$set(lastSelectedItem, 'children', result)
+        const copy = JSON.parse(JSON.stringify(this.source))
+        const nodeToUpdate = getNodeById(copy, lastSelectedItem.id)
+        if (nodeToUpdate) {
+          nodeToUpdate.children = result
+        }
+        this.$emit('update:source', copy)
+      }
+      if (!lastSelectedItem.isLeaf) {
+        this.loadData && this.loadData(lastSelectedItem, updateSource)
+      }
     }
   }
 }

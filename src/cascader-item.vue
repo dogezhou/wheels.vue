@@ -2,12 +2,12 @@
   <div class="cascader-item" :style="{height: height}">
     <div class="left">
       <div class="label" v-for="(item, index) in items" :key="index" @click="onClickLabel(item)">
-        {{item.name}}
-        <icon class="icon" v-if="item.children" name="right"></icon>
+        <span class="name">{{item.name}}</span>
+        <icon class="icon" v-if="rightArrowVisible(item)" name="right"></icon>
       </div>
     </div>
     <div class="right" v-if="rightItems">
-      <cascader-item :items="rightItems" :height="height" :level="level+1" :selected="selected" @update:selected="onChangeSelected"></cascader-item>
+      <cascader-item :load-data="loadData" :items="rightItems" :height="height" :level="level+1" :selected="selected" @update:selected="onChangeSelected"></cascader-item>
     </div>
   </div>
 </template>
@@ -31,17 +31,20 @@ export default {
     level: {
       type: Number,
       default: 0,
-    }
+    },
+    loadData: {
+      type: Function
+    },
   },
   computed: {
     rightItems () {
-      const currentSelected = this.selected[this.level]
-      if (currentSelected && currentSelected.children) {
-        return currentSelected.children
-      } else {
-        return null
+      if (this.selected[this.level]) {
+        let selected = this.items.filter((item) => item.name === this.selected[this.level].name)
+        if (selected && selected[0].children && selected[0].children.length > 0) {
+          return selected[0].children
+        }
       }
-    }
+    },
   },
   methods: {
     onClickLabel (item) {
@@ -53,7 +56,10 @@ export default {
     },
     onChangeSelected (selected) {
       this.$emit('update:selected', selected)
-    }
+    },
+    rightArrowVisible (item) {
+      return this.loadData ? !item.isLeaf : item.children
+    },
   }
 }
 </script>
@@ -68,17 +74,26 @@ export default {
     .left {
       height: 100%;
       padding: 0.3em 0;
+      overflow: auto;
     }
     .right {
       height: 100%;
       border-left: 1px solid $border-color-light;
     }
     .label {
-      padding: 0.3em 1em;
+      padding: 0.5em 1em;
       display: flex;
       align-items: center;
+      cursor: pointer;
+      &:hover {
+        background: $grey;
+      }
+      .name {
+        margin-right: 1em;
+        user-select: none;
+      }
       .icon {
-        margin-left: 1em;
+        margin-left: auto;
         transform: scale(0.6);
       }
     }
