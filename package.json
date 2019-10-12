@@ -6,9 +6,7 @@
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "test:unit": "vue-cli-service test:unit",
-        "dev-test": "concurrently \"parcel watch test/* --no-cache\" \"karma start\" \"echo 热更新测试!\"",
-        "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
+        "test": "vue-cli-service test:unit",
         "docs:dev": "vuepress dev docs",
         "docs:build": "vuepress build docs"
     },
