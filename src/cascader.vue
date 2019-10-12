@@ -1,6 +1,6 @@
 <template>
-  <div class="cascader">
-    <div class="trigger" @click="popoverVisible=!popoverVisible">
+  <div class="cascader" v-click-outside="close">
+    <div class="trigger" @click="toggle">
       <slot></slot>
       {{result || '&nbsp;'}}
     </div>
@@ -12,9 +12,12 @@
 
 <script>
 import CascaderItem from './cascader-item'
+import ClickOutside from './click-outside'
+
 export default {
   name: "ZCascader",
   components: { CascaderItem },
+  directives: { ClickOutside },
   props: {
     source: {
       type: Array
@@ -41,6 +44,19 @@ export default {
     }
   },
   methods: {
+    open () {
+      this.popoverVisible = true
+    },
+    close () {
+      this.popoverVisible = false
+    },
+    toggle () {
+      if (this.popoverVisible === true) {
+        this.close()
+      } else {
+        this.open()
+      }
+    },
     onChangeSelected (selected) {
       this.$emit('update:selected', selected)
       const lastSelectedItem = selected[selected.length - 1]
@@ -80,6 +96,7 @@ export default {
   @import "var";
   .cascader {
     position: relative;
+    display: inline-block;
     .trigger {
       display: inline-flex;
       align-items: center;
