@@ -1,11 +1,10 @@
 <template>
   <div class="cascader" v-click-outside="close">
     <div class="trigger" @click="toggle">
-      <slot></slot>
       {{result || '&nbsp;'}}
     </div>
     <div class="popover-wrapper" v-if="popoverVisible">
-      <cascader-item :load-data="loadData" :items="source" :height="popoverHeight" :selected="selected" @update:selected="onChangeSelected"></cascader-item>
+      <cascader-item :loading-item="loadingItem" :load-data="loadData" :items="source" :height="popoverHeight" :selected="selected" @update:selected="onChangeSelected"></cascader-item>
     </div>
   </div>
 </template>
@@ -31,11 +30,12 @@ export default {
     },
     loadData: {
       type: Function
-    }
+    },
   },
   data () {
     return {
       popoverVisible: false,
+      loadingItem: {},
     }
   },
   computed: {
@@ -75,6 +75,8 @@ export default {
         return node
       }
       const updateSource = (result) => {
+        // 清空 loadingItem
+        this.loadingItem = {}
         // 遵循单向数据流原则，子组件不要修改 props
         // this.$set(lastSelectedItem, 'children', result)
         const copy = JSON.parse(JSON.stringify(this.source))
@@ -84,8 +86,9 @@ export default {
         }
         this.$emit('update:source', copy)
       }
-      if (!lastSelectedItem.isLeaf) {
-        this.loadData && this.loadData(lastSelectedItem, updateSource)
+      if (!lastSelectedItem.isLeaf && this.loadData) {
+         this.loadData(lastSelectedItem, updateSource)
+         this.loadingItem = lastSelectedItem
       }
     }
   }
@@ -114,6 +117,7 @@ export default {
       @extend .box-shadow;
       display: flex;
       margin-top: 8px;
+      z-index: 1;
     }
   }
 </style>

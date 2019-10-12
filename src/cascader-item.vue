@@ -3,11 +3,25 @@
     <div class="left">
       <div class="label" v-for="(item, index) in items" :key="index" @click="onClickLabel(item)">
         <span class="name">{{item.name}}</span>
-        <icon class="icon" v-if="rightArrowVisible(item)" name="right"></icon>
+        <span class="icons">
+          <template v-if="item.name === loadingItem.name">
+            <icon class="loading" name="loading"></icon>
+          </template>
+          <template v-else>
+            <icon class="next" v-if="rightArrowVisible(item)" name="right"></icon>
+          </template>
+        </span>        
       </div>
     </div>
     <div class="right" v-if="rightItems">
-      <cascader-item :load-data="loadData" :items="rightItems" :height="height" :level="level+1" :selected="selected" @update:selected="onChangeSelected"></cascader-item>
+      <cascader-item 
+        :loading-item="loadingItem" 
+        :load-data="loadData" 
+        :items="rightItems" 
+        :height="height" 
+        :level="level+1" 
+        :selected="selected" 
+        @update:selected="onChangeSelected"></cascader-item>
     </div>
   </div>
 </template>
@@ -34,6 +48,10 @@ export default {
     },
     loadData: {
       type: Function
+    },
+    loadingItem: {
+      type: Object,
+      default: () => ({})
     },
   },
   computed: {
@@ -93,9 +111,14 @@ export default {
         margin-right: 1em;
         user-select: none;
       }
-      .icon {
+      .icons {
         margin-left: auto;
-        transform: scale(0.6);
+        .next {
+          transform: scale(0.4);
+        }
+        .loading {
+          animation: spin 2s infinite linear;
+        }
       }
     }
   }
