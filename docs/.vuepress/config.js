@@ -1,6 +1,6 @@
 module.exports = {
     base: '/wheels.vue/',
-    title: '整挺好',
+    title: '整挺好(zth) UI',
     description: '一个整挺好的 UI 框架',
     themeConfig: {
         sidebar: [
@@ -12,7 +12,10 @@ module.exports = {
             {
                 title: '组件',
                 collapsable: false,
-                children: ['/components/button']
+                children: [
+                  '/components/button',
+                  '/components/input',
+                ]
             },
         ]
     }
