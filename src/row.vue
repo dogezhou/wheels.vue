@@ -45,6 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "var";
   .row {
     display: flex;
     flex-wrap: wrap;

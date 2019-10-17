@@ -70,6 +70,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "var";
   .col {
     $class: col-;
     @for $n from 1 through 24 {
