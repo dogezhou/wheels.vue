@@ -1,6 +1,7 @@
 <template>
   <div
     class="row"
+    :class="rowClass"
     :style="rowStyle"
   >
     <slot></slot>

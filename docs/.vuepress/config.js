@@ -13,6 +13,8 @@ module.exports = {
                 title: '组件',
                 collapsable: false,
                 children: [
+                  '/components/grid',
+                  '/components/layout',
                   '/components/button',
                   '/components/input',
                 ]
