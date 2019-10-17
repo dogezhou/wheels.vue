@@ -17,6 +17,7 @@ module.exports = {
                   '/components/layout',
                   '/components/button',
                   '/components/input',
+                  '/components/tabs',
                 ]
             },
         ]

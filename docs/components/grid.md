@@ -34,4 +34,4 @@ title: Grid 栅格
 
 ## 笔记
 - Row 接收 gutter 属性，Col 也需要知道 gutter， 可以通过 mounted 钩子中的 this.$children 设置子组件的 gutter 属性
-- Vue 父子组件 create 和 mount 的顺序经过测试是这样的：父组件 created :arrow_right: 子组件 created :arrow_right: 子组件 mounted :arrow_right: 父组件 created
+- Vue 父子组件 create 和 mount 的顺序经过测试是这样的：父组件 created :arrow_right: 子组件 created :arrow_right: 子组件 mounted :arrow_right: 父组件 mounted

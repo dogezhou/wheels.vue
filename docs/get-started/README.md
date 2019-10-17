@@ -12,4 +12,6 @@ export default {
   name: 'app',
 }
 ```
-> :warning: 需要注意，样式文件需要单独引入。
+::: warning
+  需要注意，样式文件需要单独引入
+:::
