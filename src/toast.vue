@@ -5,7 +5,7 @@
         <slot v-if="!enableHtml"></slot>
         <div v-else v-html="$slots.default[0]"></div>
       </div>
-      <div class="line" ref="line"></div>
+      <div class="line" v-if="closeButton" ref="line"></div>
       <span class="close" v-if="closeButton" @click="onClickClose">
         {{closeButton.text}}
       </span>
@@ -25,11 +25,14 @@
       },
       closeButton: {
         type: Object,
-        default () {
-          return {
-            text: '关闭', callback: undefined
-          }
+        validator (value) {
+          return value && value.text
         }
+        // default () {
+        //   return {
+        //     text: '关闭', callback: undefined
+        //   }
+        // }
       },
       enableHtml: {
         type: Boolean,
@@ -103,6 +106,7 @@
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1000;
     &.position-top {
       top: 0;
       .toast {
@@ -144,6 +148,7 @@
     .close {
       padding-left: 16px;
       flex-shrink: 0;
+      cursor: pointer;
     }
     .line {
       height: 100%;
