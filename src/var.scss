@@ -1,5 +1,5 @@
 // 使用 border-box
-* {
+*,*::before,*::after {
   box-sizing: border-box;
 }
 $border-color-hover: #666;

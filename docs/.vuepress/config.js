@@ -1,8 +1,13 @@
 module.exports = {
     base: '/wheels.vue/',
-    title: '整挺好(zth) UI',
-    description: '一个整挺好的 UI 框架',
+    title: 'zth UI',
+    description: '一个 Vue 的 UI 框架',
     themeConfig: {
+        nav: [
+          { text: '主页', link: '/' },
+          { text: '组件', link: '/components/icon' },
+          { text: 'GitHub', link: 'https://github.com/dogezhou/wheels.vue' },
+        ],      
         sidebar: [
             {
                 title: '开始',
