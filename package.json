@@ -1,6 +1,6 @@
 {
     "name": "zth",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "这是一个 vue 的组件库",
     "main": "dist/zth.umd.min.js",
     "scripts": {
