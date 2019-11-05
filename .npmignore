@@ -4,6 +4,7 @@
 /tests/
 /tmp/
 /coverage/
+/public/
 
 .travis.yml
 deploy.sh
