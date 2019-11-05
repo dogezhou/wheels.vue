@@ -1,8 +1,8 @@
 {
     "name": "zth",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "这是一个 vue 的组件库",
-    "main": "dist/index.js",
+    "main": "dist/zth.umd.min.js",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build --target lib --name zth src/index.js",
